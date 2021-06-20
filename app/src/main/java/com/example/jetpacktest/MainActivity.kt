@@ -20,12 +20,20 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             HappyMeal()
+            val navcontroller = rememberNavController()
+
+            NavHost(navController = navcontroller,
+                startDestination = "happy_meal"){
+
+            }
         }
     }
 }
@@ -78,6 +86,13 @@ fun HappyMeal(){
         }
     }
 
+}
+
+@Composable
+fun RecipeList(){
+    Column() {
+        Text(text = "Recipe list")
+    }
 }
 
 
